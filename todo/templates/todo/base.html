@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do</title>
+</head>
+<body>
+
+    {% if user.is_authenticated %}
+        Logged in as {{ user.username}}
+        <form action="{% url 'logoutuser' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">Log Out</button>
+        </form>
+    {% else %}
+        <a href="{% url 'signupuser' %}">Sign Up</a>
+        <a href="{% url 'loginuser' %}">Log In</a>
+    {% endif %}
+
+    <br><br>
+
+    {% block content %}{% endblock %}
+</body>
+</html>
