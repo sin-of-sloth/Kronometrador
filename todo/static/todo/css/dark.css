@@ -44,7 +44,7 @@ nav ul li.active, nav ul li.active:hover {
     background-color: #1e1e1e !important;;
 }
 
-.todo-card a, .imp-todo-card a, .todo-card i, .imp-todo-card i {
+.todo-card a, .imp-todo-card a, .todo-card i, .imp-todo-card i, .imp-btn {
     color: #ffffff !important
 }
 

@@ -36,7 +36,7 @@ body {
     background-color: #ec602e !important;    
 }
 
-.active, .active:hover {
+nav ul li.active, nav ul li.active:hover {
     background-color: #ec602e !important;
 }
 
@@ -44,10 +44,32 @@ body {
     background-color: #bbdefb !important;;
 }
 
-.todo-card a, .imp-todo-card a, .imp-todo-card i, .todo-card i  {
+.todo-card a, .imp-todo-card a, .imp-todo-card i, .todo-card i, .imp-btn {
     color: #000000;
 }
 
 .imp-todo-card {
     background-color: #ec602e !important;
+}
+
+input[type="text"]:focus, textarea.materialize-textarea:focus {
+    border-bottom: 1px solid #ec602e !important;
+    box-shadow: 0 1px 0 0 #ec602e !important;
+}
+
+input[type="text"]:focus + label, textarea.materialize-textarea:focus + label {
+    color: #ec602e !important;
+}
+
+[type="checkbox"]:checked + span:not(.lever)::before {
+    border-right: 4px solid #ec602e !important;
+    border-bottom: 4px solid #ec602e !important;
+}
+
+.input-field > label .active {
+    color: #9e9e9e !important;
+}
+
+input[type="text"], textarea.materialize-textarea {
+    color: #000000 !important;
 }
