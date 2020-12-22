@@ -4,10 +4,19 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
 from .forms import TodoForm
-from . models import Todo
+from . models import Todo, Quote
+from django.utils import timezone
+from django.db.models.aggregates import Count
+from django.contrib.auth.decorators import login_required
+from random import randint
 
 def home(request) :
-    return render(request, 'todo/home.html')
+    count = Quote.objects.all().aggregate(count=Count('id'))['count']
+    rand_index = randint(0, count - 1)
+    response = render(request, 'todo/home.html', {'quote':Quote.objects.all()[rand_index]})
+    if(request.COOKIES.get('theme', '') == ''):
+        response.set_cookie('theme', 'light')
+    return response
 
 def signupuser(request) :
     if request.method == 'GET' :
@@ -39,11 +48,13 @@ def loginuser(request) :
             login(request, user)
             return redirect('currenttodos')
 
+@login_required
 def logoutuser(request) :
     if request.method == 'POST' :
         logout(request)
         return redirect('home')
 
+@login_required
 def createtodo(request) :
     if request.method == 'GET' :
         return render(request, 'todo/createtodo.html', {'form':TodoForm()})
@@ -57,10 +68,17 @@ def createtodo(request) :
         except ValueError :
             return render(request, 'todo/createtodo.html', {'form':TodoForm(), 'error':'Bad data passed to ToDo. Please try again!'})
 
+@login_required
 def currenttodos(request) :
     todos = Todo.objects.filter(user=request.user, datecompleted__isnull=True)
     return render(request, 'todo/currenttodos.html', {'todos':todos})
 
+@login_required
+def completedtodos(request) :
+    todos = Todo.objects.filter(user=request.user, datecompleted__isnull=False).order_by('-datecompleted')
+    return render(request, 'todo/completedtodos.html', {'todos':todos})
+
+@login_required
 def viewtodo(request, todo_pk) :
     todo = get_object_or_404(Todo, pk=todo_pk, user=request.user)
 
@@ -74,3 +92,20 @@ def viewtodo(request, todo_pk) :
             return redirect('currenttodos')
         except ValueError :
             return render(request, 'todo/viewtodo.html', {'todo':todo, 'form':form, 'error':'Bad data passed to ToDo. Please try again!'})
+
+@login_required
+def completetodo(request, todo_pk) :
+    todo = get_object_or_404(Todo, pk=todo_pk, user=request.user)
+
+    if request.method == 'POST' :
+        todo.datecompleted = timezone.now()
+        todo.save()
+        return redirect('currenttodos')
+
+@login_required
+def deletetodo(request, todo_pk) :
+    todo = get_object_or_404(Todo, pk=todo_pk, user=request.user)
+
+    if request.method == 'POST' :
+        todo.delete()
+        return redirect('currenttodos')

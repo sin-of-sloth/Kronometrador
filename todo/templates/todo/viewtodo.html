@@ -1,5 +1,7 @@
 {% extends 'todo/base.html' %}
 
+{% block home-href %}{% url 'home' %}{% endblock %}
+
 {% block content %}
 
 <h1>{{ todo.title }}</h1>
@@ -11,5 +13,16 @@
     {{ form.as_p }}
     <button type="submit">Update To Do</button>
 </form>
+
+<form method="POST" action="{% url 'completetodo' todo.id %}">
+    {% csrf_token %}
+    <button type="submit">Mark Complete</button>
+</form>
+
+<form method="POST" action="{% url 'deletetodo' todo.id %}">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+</form>
+
 
 {% endblock %}

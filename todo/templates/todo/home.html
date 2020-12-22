@@ -1,7 +1,26 @@
 {% extends 'todo/base.html' %}
 
+{% block home-href %}#!{% endblock %}
+
 {% block content %}
 
-Home
+<div class="container">
+
+    <div class="quote-container center">
+        <div class="quote-content">
+            <h2>"{{ quote.quote|safe }}"</h2>
+        </div>
+        <div class="quote-speaker">
+            <h5>- {{ quote.speaker }}</h5>
+        </div>
+    </div>
+
+    {% if user.is_authenticated %}
+        HOLA
+    {% else %}
+
+    {% endif %}
+
+</div>
 
 {% endblock %}

@@ -11,3 +11,10 @@ class Todo(models.Model) :
 
     def __str__(self) :
         return self.title
+
+class Quote(models.Model) :
+    quote = models.TextField()
+    speaker = models.TextField(blank=True)
+
+    def __str__(self) :
+        return self.quote

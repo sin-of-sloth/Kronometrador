@@ -1,0 +1,29 @@
+body {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+}
+
+.nav-wrapper {
+    background-color: #383838 !important;
+}
+
+.dropdown-content {
+    background-color: #383838 !important;
+    color: #ffffff !important;
+}
+
+.nav-wrapper ul li {
+    color: #ffffff !important;
+}
+
+.dropdown-content li:hover {
+    background-color: #323232 !important;
+}
+
+.dropdown-content li a {
+    color: #ffffff !important;
+}
+
+.theme-text {
+    color: #ffffff !important;
+}
