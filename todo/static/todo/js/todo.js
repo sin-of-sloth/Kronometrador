@@ -3,6 +3,12 @@ $(document).ready(function(){
         coverTrigger: false,
         constrainWidth: false,
         closeOnClick: false,
+        onOpenStart: function() {
+            $(".dropdown-trigger > i").toggleClass("down");
+        },
+        onCloseStart: function() {
+            $(".dropdown-trigger > i").toggleClass("down");
+        },
     });
 });
 
@@ -17,7 +23,3 @@ function toggler() {
         document.cookie = "theme=dark;path=/";
     }
 }
-
-$(".dropdown-trigger").click(function(){
-    $(".dropdown-trigger > i").toggleClass("down"); 
-});

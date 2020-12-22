@@ -13,7 +13,8 @@ from random import randint
 def home(request) :
     count = Quote.objects.all().aggregate(count=Count('id'))['count']
     rand_index = randint(0, count - 1)
-    response = render(request, 'todo/home.html', {'quote':Quote.objects.all()[rand_index]})
+    time_quote = Quote.objects.all()[rand_index]
+    response = render(request, 'todo/home.html', {'time_quote':time_quote})
     if(request.COOKIES.get('theme', '') == ''):
         response.set_cookie('theme', 'light')
     return response
@@ -28,7 +29,7 @@ def signupuser(request) :
                 user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
                 user.save()
                 login(request, user)
-                return redirect('currenttodos')
+                return redirect('home')
 
             except IntegrityError :
                 return render(request, 'todo/signupuser.html', {'form':UserCreationForm(), 'error':'Username already taken!'})    
@@ -46,7 +47,7 @@ def loginuser(request) :
             return render(request, 'todo/loginuser.html', {'form':AuthenticationForm(), 'error':'Username and password does not match!'})
         else :
             login(request, user)
-            return redirect('currenttodos')
+            return redirect('home')
 
 @login_required
 def logoutuser(request) :

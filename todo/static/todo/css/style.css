@@ -27,6 +27,11 @@
 }
 
 @font-face {
+    font-family: 'HarryPotter';
+    src: url('../fonts/HP.ttf') format("truetype");
+}
+
+@font-face {
     font-family: 'RemachineScript';
     src: url('../fonts/RemachineScript.ttf') format("truetype");
 }
@@ -67,13 +72,16 @@ body {
     font-family: 'UbuntuTitle';
 }
 
+.brand-logo {
+    font-family: 'HarryPotter' !important;
+}
+
 .theme-text {
     font-size: medium !important;
 }
 
 .remachine-font {
     font-family: 'RemachineScript';
-    font-size: 100px !important;
 }
 
 .navbar-brand {
@@ -121,5 +129,29 @@ body {
 }
 
 .quote-container {
-    height: 400px;
+    height: 430px;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.quote-content {
+    font-family: 'Conspiracy' !important;
+}
+
+.quote-speaker {
+    font-family: 'Special Elite' !important;
+}
+
+nav form {
+    height: auto !important;
+}
+
+.card-panel {
+    border-radius: 7px !important;
+}
+
+.completed-header {
+    font-family: 'Special Elite';
+    font-size: xx-large;
+    padding-top: 0;
 }

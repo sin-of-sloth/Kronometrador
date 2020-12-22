@@ -1,24 +1,38 @@
 {% extends 'todo/base.html' %}
 
-{% block home-href %}#!{% endblock %}
+{% block home-url %}#!{% endblock %}
+{% block create-url %}{% url 'createtodo' %}{% endblock %}
+{% block current-url %}{% url 'currenttodos' %}{% endblock %}
+{% block completed-url %}{% url 'completedtodos' %}{% endblock %}
 
 {% block content %}
 
 <div class="container">
 
-    <div class="quote-container center">
-        <div class="quote-content">
-            <h2>"{{ quote.quote|safe }}"</h2>
+    <div class="quote-container">
+        <div class="quote-content center">
+            <h3>"{{ time_quote.quote|safe }}"</h3>
         </div>
-        <div class="quote-speaker">
-            <h5>- {{ quote.speaker }}</h5>
+        <div class="quote-speaker right">
+            <h5>- {{ time_quote.speaker }}</h5>
         </div>
     </div>
 
-    {% if user.is_authenticated %}
-        HOLA
-    {% else %}
+    <div class="center">
+        <h6>Go forth and use your time wisely!<br><br>This to-do app might be of some help! Your organized life awaits!</h6>
+    </div>
+    <br><hr><br>
 
+    {% if user.is_authenticated %}
+        <div class="center">
+            <a class="btn home-btn btn-large z-depth-2" href="{% url 'createtodo' %}">Create<i class="material-icons right">add</i></a>&emsp;
+            <a class="btn home-btn btn-large z-depth-2" href="{% url 'currenttodos' %}">Ongoing<i class="material-icons right">assignment</i></a>&emsp;
+            <a class="btn home-btn btn-large z-depth-2" href="{% url 'completedtodos' %}">Completed<i class="material-icons right">done</i></a>
+        </div>
+    {% else %}
+        <div class="center">
+            <a class="btn home-btn btn-large z-depth-2" href="{% url 'signupuser' %}">Get Started<i class="material-icons right">outlined_flag</i></a>&emsp;
+        </div>
     {% endif %}
 
 </div>

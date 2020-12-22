@@ -1,22 +1,28 @@
 {% extends 'todo/base.html' %}
 
-{% block home-href %}{% url 'home' %}{% endblock %}
+{% block home-url %}{% url 'home' %}{% endblock %}
+{% block create-url %}{% url 'createtodo' %}{% endblock %}
+{% block current-url %}#!{% endblock %}
+{% block completed-url %}{% url 'completedtodos' %}{% endblock %}
+
+{% block current-active %}class="active"{% endblock %}
 
 {% block content %}
 
-<ul>
+<div class="container">
     {% for todo in todos %}
-    <li>
+    <div class="card-panel {% if todo.important %}imp-todo{% else %}todo{% endif %}-card">
         <a href="{% url 'viewtodo' todo.id %}">
-            {% if todo.important %}<b>{% endif %}
             {{ todo.title }}
-            {% if todo.important %}</b>{% endif %}
             {% if todo.memo %}
                 - {{ todo.memo }}
             {% endif %}
         </a>
-    </li>
+        {% if todo.important %}
+        <i class="material-icons right red-text">new_releases</i>
+        {% endif %}
+    </div>
     {% endfor %}
-</ul>
+</div>
 
 {% endblock %}

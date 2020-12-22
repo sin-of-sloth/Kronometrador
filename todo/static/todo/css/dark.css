@@ -27,3 +27,27 @@ body {
 .theme-text {
     color: #ffffff !important;
 }
+
+.home-btn:hover {
+    background-color: #9a66f4 !important;    
+}
+
+.home-btn {
+    background-color: #6200ee !important;    
+}
+
+.active, .active:hover {
+    background-color: #6200ee !important;
+}
+
+.todo-card {
+    background-color: #1e1e1e !important;;
+}
+
+.todo-card a, .imp-todo-card a, .todo-card i, .imp-todo-card i {
+    color: #ffffff !important
+}
+
+.imp-todo-card {
+    background-color: #6200ee !important;
+}

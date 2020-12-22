@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
     {% ifequal request.COOKIES.theme "dark" %}
-        <link rel="stylesheet" href="{% static 'todo/css/dark.css' %}" id="theme" class="dark">
+    <link rel="stylesheet" href="{% static 'todo/css/dark.css' %}" id="theme" class="dark">
     {% else %}
-        <link rel="stylesheet" href="{% static 'todo/css/light.css' %}" id="theme" class="light">
+    <link rel="stylesheet" href="{% static 'todo/css/light.css' %}" id="theme" class="light">
     {% endifequal %}
     <link rel="stylesheet" type="text/css" href="{% static 'todo/css/materialize.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'todo/css/style.css' %}">
@@ -19,6 +18,7 @@
 <body>
     
     {% if user.is_authenticated %}
+
     <ul id="dropdown1" class="dropdown-content center">
         <div class="switch">
             <label>
@@ -41,21 +41,22 @@
             </li>
          </form>
     </ul>
+
     {% endif %}
 
     <div class="navbar-fixed">
         <nav class="z-depth-3">
             <div class="nav-wrapper">
-                <a href="#!" class="brand-logo center">To-Do</a>
+                <a href="{% block home-url %}{% endblock %}" class="brand-logo center">Kronometrador</a>
     
                 {% if user.is_authenticated %}
                 <ul class="left hide-on-med-and-down">
-                    <li {% block create-active %}{% endblock %}><a href="{% url 'createtodo' %}">Create</a></li>
-                    <li {% block current-active %}{% endblock %}><a href="{% url 'currenttodos' %}">Current</a></li>
-                    <li {% block completed-active %}{% endblock %}><a href="{% url 'completedtodos' %}">Completed</a></li>
+                    <li {% block create-active %}{% endblock %}><a href="{% block create-url %}{% endblock %}">Create</a></li>
+                    <li {% block current-active %}{% endblock %}><a href="{% block current-url %}{% endblock %}">Ongoing</a></li>
+                    <li {% block completed-active %}{% endblock %}><a href="{% block completed-url %}{% endblock %}">Completed</a></li>
                 </ul>
                 <ul class="right hide-on-med-and-down">
-                    <li>Howdy, {{ user.username}}&emsp;</li>
+                    <li>Howdy, {{ user.username}}!&emsp;</li>
                     <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons rotate">more_vert</i></a></li>
                 </ul>
                 {% else %}

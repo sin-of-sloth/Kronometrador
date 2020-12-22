@@ -1,6 +1,11 @@
 {% extends 'todo/base.html' %}
 
-{% block home-href %}{% url 'home' %}{% endblock %}
+{% block home-url %}{% url 'home' %}{% endblock %}
+{% block create-url %}#!{% endblock %}
+{% block current-url %}{% url 'currenttodos' %}{% endblock %}
+{% block completed-url %}{% url 'completedtodos' %}{% endblock %}
+
+{% block create-active %}class="active"{% endblock %}
 
 {% block content %}
 

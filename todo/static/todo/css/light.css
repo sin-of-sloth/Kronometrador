@@ -1,5 +1,5 @@
 body {
-    background-color: #bbdefb;
+    background-color: #eeffff;
     color: #000000;
 }
 
@@ -17,7 +17,7 @@ body {
 }
 
 .dropdown-content li:hover {
-    background-color: #7c9ab4 !important;
+    background-color: #0000001a !important;
 }
 
 .dropdown-content li a {
@@ -26,4 +26,28 @@ body {
 
 .theme-text {
     color: #000000 !important;
+}
+
+.home-btn:hover {
+    background-color: #f77b4f !important;    
+}
+
+.home-btn {
+    background-color: #ec602e !important;    
+}
+
+.active, .active:hover {
+    background-color: #ec602e !important;
+}
+
+.todo-card {
+    background-color: #bbdefb !important;;
+}
+
+.todo-card a, .imp-todo-card a, .imp-todo-card i, .todo-card i  {
+    color: #000000;
+}
+
+.imp-todo-card {
+    background-color: #ec602e !important;
 }
