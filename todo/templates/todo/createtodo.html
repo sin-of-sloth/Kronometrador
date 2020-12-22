@@ -9,12 +9,44 @@
 
 {% block content %}
 
-<h1>Create</h1>
-<h2>{{ error }}</h2>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create</button>
-</form>
+<div class="container center specialelite-font">
+    <h1>Create New Task</h1>
+
+    {{ error }}
+</div>
+
+<div class="container">
+    <div class="row">
+        <form class="col s12" method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="input-field col s12">
+                    {{ form.title }}
+                    <label for="id_title">Task Title*</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    {{ form.memo }}
+                    <label for="id_memo">Task Details</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label>
+                        {{ form.important }}
+                        <span class="white-text">Important</span>
+                    </label>
+                </div>
+            </div>
+            <br><br>
+            <div class="row center">
+                <div class="col s12">
+                    <button type="submit" class="btn home-btn btn-large">Create Task<i class="material-icons right">add</i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 
 {% endblock %}
