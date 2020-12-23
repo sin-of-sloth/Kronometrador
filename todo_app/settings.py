@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'lxs$x^bd)xeseb$mp$0-wr@=%d9*ynv9mf0#&b=pv(a&!x7r95'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -122,3 +122,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 
 LOGIN_URL = '/login'
+
+try:
+    from .local_settings import *
+except ImportError:
+    print("Looks like there's no local settings. You must be on production")
