@@ -12,7 +12,7 @@ make help
 
 ### Landing Page
 
-(<https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/landing_page.png?raw=true>)
+![landing_page](https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/landing_page.png?raw=true)
 
 ### Landing Page (Logged In)
 
