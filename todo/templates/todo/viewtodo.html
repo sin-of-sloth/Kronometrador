@@ -7,10 +7,11 @@
 
 {% block content %}
 
-<div class="container center specialelite-font">
-    <h1>{{ todo.title }}</h1>
-
-    {{ error }}
+<div class="container center">
+    <h1 class="specialelite-font">{{ todo.title }}</h1>
+    {% if todo.datecompleted%}
+    <h2 class="remachine-font light-green-text text-accent-4">Completed&nbsp;<i class="material-icons">check_circle</i></h2>
+    {% endif %}
 </div>
 
 <div class="container">
@@ -64,4 +65,12 @@
 </form>
 
 
+{% endblock %}
+
+{% block script-block %}
+{% if error %}
+    $(document).ready(function(){
+        M.toast({html: '{{ error }}', displayLength: 2000, classes: 'white-text error-toast'});
+    });
+{% endif %}
 {% endblock %}

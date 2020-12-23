@@ -16,7 +16,7 @@
 <div class="container">
     {% for todo in todos %}
     <div class="card-panel {% if todo.important %}imp-{% endif %}todo-card">
-        <i class="material-icons left">check_circle</i>
+        <i class="material-icons left light-green-text text-accent-4">check_circle</i>
         <a href="{% url 'viewtodo' todo.id %}">
             {{ todo.title }}
             {% if todo.memo %}

@@ -61,6 +61,6 @@ help:
 	@echo '$(RED)superuser:$(RESET) create a django admin (superuser)'
 	@echo '$(RED)static:$(RESET) collect static files to root $(RED)(do not run on local! bad!)$(RESET)'
 	@echo '$(RED)push:$(RESET) commands to run to push to git'
-	@echo '$(RED)pull:$(RESET) commands to run to pull from git to production'
+	@echo '$(RED)pull:$(RESET) commands to run to pull from git to production (for pythonanywhere)'
 	@echo ''
 	@:
