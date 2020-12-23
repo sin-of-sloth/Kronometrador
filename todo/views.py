@@ -72,7 +72,10 @@ def createtodo(request) :
 @login_required
 def currenttodos(request) :
     todos = Todo.objects.filter(user=request.user, datecompleted__isnull=True)
-    return render(request, 'todo/currenttodos.html', {'todos':todos})
+    count = Quote.objects.all().aggregate(count=Count('id'))['count']
+    rand_index = randint(0, count - 1)
+    time_quote = Quote.objects.all()[rand_index]
+    return render(request, 'todo/currenttodos.html', {'todos':todos, 'time_quote':time_quote})
 
 @login_required
 def completedtodos(request) :

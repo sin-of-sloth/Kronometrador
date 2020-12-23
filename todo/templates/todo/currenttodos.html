@@ -10,8 +10,10 @@
 {% block content %}
 
 <div class="container">
+    {% if todos %}
     {% for todo in todos %}
-    <div class="card-panel {% if todo.important %}imp-todo{% else %}todo{% endif %}-card">
+
+    <div class="card-panel {% if todo.important %}imp-{% endif %}todo-card">
         <a href="{% url 'viewtodo' todo.id %}">
             {{ todo.title }}
             {% if todo.memo %}
@@ -19,10 +21,28 @@
             {% endif %}
         </a>
         {% if todo.important %}
-        <i class="material-icons right red-text">new_releases</i>
+        <i class="material-icons right">new_releases</i>
         {% endif %}
     </div>
     {% endfor %}
+
+    {% else %}
+
+    <div class="quote-container">
+        <div class="quote-content center">
+            <h3>"{{ time_quote.quote|safe }}"</h3>
+        </div>
+        <div class="quote-speaker right">
+            <h5>- {{ time_quote.speaker }}</h5>
+        </div>
+    </div>
+
+    <div class="center">
+        <h6>You have no pending tasks!<br><br>Great job!</h6>
+    </div>
+    <br><hr><br>
+
+    {% endif %}
 </div>
 
 {% endblock %}

@@ -7,24 +7,60 @@
 
 {% block content %}
 
-<h1>{{ todo.title }}</h1>
+<div class="container center specialelite-font">
+    <h1>{{ todo.title }}</h1>
 
-<h2>{{ error }}</h2>
+    {{ error }}
+</div>
 
-<form method="POST">
+<div class="container">
+    <div class="row">
+        <form class="col s12" method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="input-field col s12">
+                    {{ form.title }}
+                    <label for="id_title">Task Title*</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    {{ form.memo }}
+                    <label for="id_memo">Task Details</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <label>
+                        {{ form.important }}
+                        <span class="imp-btn">Important</span>
+                    </label>
+                </div>
+            </div>
+            <br><br>
+            <div class="row center">
+                <div class="col s12">
+                    <button type="submit" class="btn create-btn btn-large">Update<i class="material-icons right">update</i></button>&emsp;
+                    {% if todo.datecompleted is None %}
+                    <button type="button" onclick="$('#complete_btn').click()" class="btn complete-btn btn-large">Complete<i class="material-icons right">done</i></button>&emsp;
+                    {% endif %}
+                    <button type="button" onclick="$('#delete_btn').click()" class="btn delete-btn btn-large">Delete<i class="material-icons right">delete_forever</i></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% if todo.datecompleted is None %}
+<form method="POST" class="invis-form" action="{% url 'completetodo' todo.id %}">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Update To Do</button>
+    <button type="submit" id="complete_btn">Mark Complete</button>
 </form>
+{% endif %}
 
-<form method="POST" action="{% url 'completetodo' todo.id %}">
+<form method="POST" class="invis-form" action="{% url 'deletetodo' todo.id %}">
     {% csrf_token %}
-    <button type="submit">Mark Complete</button>
-</form>
-
-<form method="POST" action="{% url 'deletetodo' todo.id %}">
-    {% csrf_token %}
-    <button type="submit">Delete</button>
+    <button type="submit" id="delete_btn">Delete</button>
 </form>
 
 

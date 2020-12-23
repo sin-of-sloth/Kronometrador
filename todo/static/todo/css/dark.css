@@ -4,7 +4,11 @@ body {
 }
 
 .nav-wrapper {
-    background-color: #383838 !important;
+    background-color: #1e1e1e !important;
+}
+
+.brand-active {
+    color: yellow !important;
 }
 
 .dropdown-content {
@@ -33,7 +37,8 @@ body {
 }
 
 .home-btn {
-    background-color: #6200ee !important;    
+    background-color: #6200ee !important;
+    color: #ffffff !important;
 }
 
 nav ul li.active, nav ul li.active:hover {
@@ -52,12 +57,12 @@ nav ul li.active, nav ul li.active:hover {
     background-color: #6200ee !important;
 }
 
-input[type="text"]:focus, textarea.materialize-textarea:focus {
+input[type="text"]:focus, input[type="password"]:focus, textarea.materialize-textarea:focus {
     border-bottom: 1px solid #6200ee !important;
     box-shadow: 0 1px 0 0 #6200ee !important;
 }
 
-input[type="text"]:focus + label, textarea.materialize-textarea:focus + label {
+input[type="text"]:focus + label, input[type="password"]:focus + label, textarea.materialize-textarea:focus + label {
     color: #6200ee !important;
 }
 
@@ -70,6 +75,6 @@ input[type="text"]:focus + label, textarea.materialize-textarea:focus + label {
     color: #9e9e9e !important;
 }
 
-input[type="text"], textarea.materialize-textarea {
+input[type="text"], input[type="password"], textarea.materialize-textarea {
     color: #ffffff !important;
 }
