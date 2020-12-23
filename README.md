@@ -16,36 +16,36 @@ make help
 
 ### Landing Page (Logged In)
 
-<img src="https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/landing_page(logged_in).png?raw=true" width="100%" height="auto">
+![landing_page_logged_in](https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/landing_page(logged_in).png?raw=true)
 
 ### Sign Up
 
-<img src="https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/signup.png?raw=true" width="100%" height="auto">
+![signup](https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/signup.png?raw=true)
 
 ### Log In
 
-<img src="https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/login.png?raw=true" width="100%" height="auto">
+![login](https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/login.png?raw=true)
 
 ### Create Task
 
-<img src="https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/create_task_1.png?raw=true" width="100%" height="auto">
+![create_task_1](https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/create_task_1.png?raw=true)
 
 ### Create Task
 
-<img src="https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/create_task_2.png?raw=true" width="100%" height="auto">
+![create_task_2](https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/create_task_2.png?raw=true)
 
 ### Ongoing Tasks
 
-<img src="https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/ongoing.png?raw=true" width="100%" height="auto">
+![ongoing](https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/ongoing.png?raw=true)
 
 ### Completed Tasks
 
-<img src="https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/completed.png?raw=true" width="100%" height="auto">
+![completed](https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/completed.png?raw=true)
 
 ### Edit an Ongoing Task
 
-<img src="https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/edit_ongoing.png?raw=true" width="100%" height="auto">
+![edit_ongoing](https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/edit_ongoing.png?raw=true)
 
 ### Edit a Completed Task
 
-<img src="https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/edit_completed.png?raw=true" width="100%" height="auto">
+![edit_completed](https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/edit_completed.png?raw=true)
