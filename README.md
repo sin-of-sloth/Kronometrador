@@ -8,6 +8,6 @@ Ease of use
 make help
 ```
 
-Screenshots :
+##Screenshots :
 
-<img src="https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/landing_page.png?raw=true" width="40%" height="auto">
+<img src="https://github.com/sin-of-sloth/kronometrador/blob/main/screenshots/landing_page.png?raw=true" width="100%" height="auto">
