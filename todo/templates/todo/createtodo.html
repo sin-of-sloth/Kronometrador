@@ -11,8 +11,6 @@
 
 <div class="container center specialelite-font">
     <h1>Create New Task</h1>
-
-    {{ error }}
 </div>
 
 <div class="container">
@@ -49,4 +47,12 @@
     </div>
 </div>
 
+{% endblock %}
+
+{% block script-block %}
+{% if error %}
+    $(document).ready(function(){
+        M.toast({html: '{{ error }}', displayLength: 2000, classes: 'white-text error-toast'});
+    });
+{% endif %}
 {% endblock %}
