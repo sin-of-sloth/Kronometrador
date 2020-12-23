@@ -18,18 +18,21 @@
                             {% csrf_token %}
                             <div class="row">
                                 <div class="input-field col s12">
+                                    <i class="material-icons prefix">account_box</i>
                                     {{ form.username }}
                                     <label for="id_username">Username</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
+                                    <i class="material-icons prefix">vpn_key</i>
                                     {{ form.password1 }}
                                     <label for="id_password1">Password</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
+                                    <i class="material-icons prefix">vpn_key</i>
                                     {{ form.password2 }}
                                     <label for="id_password2">Re-enter Password</label>
                                     <span class="helper-text">Passwords should match</span>
@@ -37,7 +40,7 @@
                             </div>
                             <div class="row center">
                                 <div class="col s12">
-                                    <button type="submit" class="btn home-btn btn-large">Sign Up<i class="material-icons right">account_circle</i></button>&emsp;
+                                    <button type="submit" class="btn home-btn btn-large">Sign Up<i class="material-icons right">person_add</i></button>&emsp;
                                 </div>
                             </div>
                         </form>

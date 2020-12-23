@@ -66,6 +66,10 @@ input[type="text"]:focus + label, input[type="password"]:focus + label, textarea
     color: #ec602e !important;
 }
 
+.input-field .prefix.active {
+    color: #ec602e !important;
+}
+
 [type="checkbox"]:checked + span:not(.lever)::before {
     border-right: 4px solid #ec602e !important;
     border-bottom: 4px solid #ec602e !important;
