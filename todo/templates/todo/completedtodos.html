@@ -18,12 +18,14 @@
     <div class="card-panel {% if todo.important %}imp-{% endif %}todo-card">
         <i class="material-icons left light-green-text text-accent-4">check_circle</i>
         <a href="{% url 'viewtodo' todo.id %}">
+            <span class="grey-text"><s>
             {{ todo.title }}
             {% if todo.memo %}
                 - {{ todo.memo }}
             {% endif %}
+            </s></span>
         </a>
-        <span class="right ubuntu-font">{{ todo.datecompleted|date:'jS b Y | H:i' }}</span>
+        <span class="right ubuntu-font grey-text">{{ todo.datecompleted|date:'jS b Y | H:i' }}</span>
     </div>
     {% endfor %}
 </div>

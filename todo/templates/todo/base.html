@@ -77,8 +77,13 @@
                       </div>
                 </ul>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="{% url 'signupuser' %}">Sign Up</a></li>
-                    <li><a href="{% url 'loginuser' %}">Log In</a></li>
+                    <li><a href="{% url 'loginuser' %}">LOG IN</a></li>
+                    <li>
+                        <form action="{% url 'signupuser' %}">
+                            <button type="submit" class="btn home-btn">Sign Up</button>
+                        </form>
+                    </li>
+                    &emsp;
                 </ul>
                 {% endif %}
             </div>

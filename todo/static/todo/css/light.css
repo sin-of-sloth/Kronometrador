@@ -82,3 +82,7 @@ input[type="text"]:focus + label, input[type="password"]:focus + label, textarea
 input[type="text"], input[type="password"], textarea.materialize-textarea {
     color: #000000 !important;
 }
+
+.signup-link a {
+    color: #ec602e !important;
+}

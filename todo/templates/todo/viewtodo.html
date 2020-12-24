@@ -8,47 +8,57 @@
 {% block content %}
 
 <div class="container center">
-    <h1 class="specialelite-font">{{ todo.title }}</h1>
-    {% if todo.datecompleted%}
-    <h2 class="remachine-font light-green-text text-accent-4">Completed&nbsp;<i class="material-icons">check_circle</i></h2>
-    {% endif %}
 </div>
 
 <div class="container">
     <div class="row">
-        <form class="col s12" method="POST">
-            {% csrf_token %}
-            <div class="row">
-                <div class="input-field col s12">
-                    {{ form.title }}
-                    <label for="id_title">Task Title*</label>
+        <div class="col s10 offset-s1">
+            <div class="card-panel todo-card z-depth-3">
+                <div class="row">
+                    <div class="col s12 center">
+                        <h1 class="specialelite-font">{{ todo.title }}</h1>
+                        {% if todo.datecompleted%}
+                        <h2 class="remachine-font light-green-text text-accent-4">Completed&nbsp;<i class="material-icons light-green-text text-accent-4">check_circle</i></h2>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <form class="col s12" method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="input-field col s12">
+                                {{ form.title }}
+                                <label for="id_title">Task Title*</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                {{ form.memo }}
+                                <label for="id_memo">Task Details</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <label>
+                                    {{ form.important }}
+                                    <span class="imp-btn">Important</span>
+                                </label>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="row center">
+                            <div class="col s12">
+                                <button type="submit" class="btn create-btn btn-large">Update<span class="black-span"><i class="material-icons right">update</i></span></button>&emsp;
+                                {% if todo.datecompleted is None %}
+                                <button type="button" onclick="$('#complete_btn').click()" class="btn complete-btn btn-large">Complete<span class="black-span"><i class="material-icons right">done</i></span></button>&emsp;
+                                {% endif %}
+                                <button type="button" onclick="$('#delete_btn').click()" class="btn delete-btn btn-large">Delete<i class="material-icons right">delete_forever</i></button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    {{ form.memo }}
-                    <label for="id_memo">Task Details</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <label>
-                        {{ form.important }}
-                        <span class="imp-btn">Important</span>
-                    </label>
-                </div>
-            </div>
-            <br><br>
-            <div class="row center">
-                <div class="col s12">
-                    <button type="submit" class="btn create-btn btn-large">Update<i class="material-icons right">update</i></button>&emsp;
-                    {% if todo.datecompleted is None %}
-                    <button type="button" onclick="$('#complete_btn').click()" class="btn complete-btn btn-large">Complete<i class="material-icons right">done</i></button>&emsp;
-                    {% endif %}
-                    <button type="button" onclick="$('#delete_btn').click()" class="btn delete-btn btn-large">Delete<i class="material-icons right">delete_forever</i></button>
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 

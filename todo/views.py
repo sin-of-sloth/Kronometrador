@@ -44,7 +44,7 @@ def loginuser(request) :
     else :
         user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
         if user is None :
-            return render(request, 'todo/loginuser.html', {'form':AuthenticationForm(), 'error':'Username and password does not match!'})
+            return render(request, 'todo/loginuser.html', {'form':AuthenticationForm(), 'error':'Username and password do not match!'})
         else :
             login(request, user)
             return redirect('home')
@@ -67,7 +67,7 @@ def createtodo(request) :
             newtodo.save()
             return redirect('currenttodos')
         except ValueError :
-            return render(request, 'todo/createtodo.html', {'form':TodoForm(), 'error':'Bad data passed to ToDo. Please try again!'})
+            return render(request, 'todo/createtodo.html', {'form':TodoForm(), 'error':'Bad data passed. Please try again!'})
 
 @login_required
 def currenttodos(request) :
@@ -95,7 +95,7 @@ def viewtodo(request, todo_pk) :
             form.save()
             return redirect('currenttodos')
         except ValueError :
-            return render(request, 'todo/viewtodo.html', {'todo':todo, 'form':form, 'error':'Bad data passed to ToDo. Please try again!'})
+            return render(request, 'todo/viewtodo.html', {'todo':todo, 'form':form, 'error':'Bad data passed. Please try again!'})
 
 @login_required
 def completetodo(request, todo_pk) :
