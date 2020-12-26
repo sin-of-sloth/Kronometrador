@@ -66,17 +66,35 @@ def createtodo(request) :
             newtodo = form.save(commit=False)
             newtodo.user = request.user
             newtodo.save()
-            return redirect('currenttodos')
+            response = redirect('currenttodos')
+            response.set_cookie('origin', 'create')
+            return response
         except ValueError :
             return render(request, 'todo/createtodo.html', {'form':TodoForm(), 'error':'Bad data passed. Please try again!'})
 
 @login_required
 def currenttodos(request) :
+    if request.COOKIES.get('origin', '') == 'create' :
+        message = 'Task created!'
+    elif request.COOKIES.get('origin', '') == 'update' :
+        message = 'Task updated!'
+    elif request.COOKIES.get('origin', '') == 'delete' :
+        message = 'Task deleted!'
+    elif request.COOKIES.get('origin', '') == 'complete' :
+        message = 'Task marked complete!'
+    elif request.COOKIES.get('origin', '') == 'undocomplete' :
+        message = 'Task marked incomplete!'
+    else :
+        message = ''
+    
     todos = Todo.objects.filter(user=request.user, datecompleted__isnull=True)
     count = Quote.objects.all().aggregate(count=Count('id'))['count']
     rand_index = randint(0, count - 1)
     time_quote = Quote.objects.all()[rand_index]
-    return render(request, 'todo/currenttodos.html', {'todos':todos, 'time_quote':time_quote})
+
+    response = render(request, 'todo/currenttodos.html', {'todos':todos, 'time_quote':time_quote, 'message':message})
+    response.delete_cookie('origin')
+    return response
 
 @login_required
 def completedtodos(request) :
@@ -94,7 +112,9 @@ def viewtodo(request, todo_pk) :
         try :
             form = TodoForm(request.POST, instance=todo)
             form.save()
-            return redirect('currenttodos')
+            response = redirect('currenttodos')
+            response.set_cookie('origin', 'update')
+            return response
         except ValueError :
             return render(request, 'todo/viewtodo.html', {'todo':todo, 'form':form, 'error':'Bad data passed. Please try again!'})
 
@@ -105,7 +125,9 @@ def completetodo(request, todo_pk) :
     if request.method == 'POST' :
         todo.datecompleted = timezone.now()
         todo.save()
-        return redirect('currenttodos')
+        response = redirect('currenttodos')
+        response.set_cookie('origin', 'complete')
+        return response
 
 @login_required
 def deletetodo(request, todo_pk) :
@@ -113,7 +135,9 @@ def deletetodo(request, todo_pk) :
 
     if request.method == 'POST' :
         todo.delete()
-        return redirect('currenttodos')
+        response = redirect('currenttodos')
+        response.set_cookie('origin', 'delete')
+        return response
 
 @login_required
 def undocompletetodo(request, todo_pk) :
@@ -122,4 +146,6 @@ def undocompletetodo(request, todo_pk) :
     if request.method == 'POST' :
         todo.datecompleted = None
         todo.save()
-        return redirect('currenttodos')
+        response = redirect('currenttodos')
+        response.set_cookie('origin', 'undocomplete')
+        return response

@@ -45,6 +45,12 @@
     {% endif %}
 </div>
 
-{{ message }}
+{% endblock %}
 
+{% block script-block %}
+{% if message %}
+    $(document).ready(function(){
+        M.toast({html: '{{ message }}', displayLength: 2000, classes: 'white-text green'});
+    });
+{% endif %}
 {% endblock %}

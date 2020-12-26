@@ -86,7 +86,3 @@ input[type="text"], input[type="password"], textarea.materialize-textarea {
 .signup-link a {
     color: #6200ee !important;
 }
-
-.black-span i {
-    color: #000000 !important;
-}
