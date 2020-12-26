@@ -26,9 +26,9 @@
 
     {% if user.is_authenticated %}
         <div class="center">
-            <a class="btn create-btn btn-large z-depth-2" href="{% url 'createtodo' %}">Create<i class="material-icons right">add</i></a>&emsp;
+            <a class="btn create-btn btn-large z-depth-2" href="{% url 'createtodo' %}">Create<i class="material-icons right">add_task</i></a>&emsp;
             <a class="btn ongoing-btn btn-large z-depth-2" href="{% url 'currenttodos' %}">Ongoing<i class="material-icons right">assignment</i></a>&emsp;
-            <a class="btn complete-btn btn-large z-depth-2" href="{% url 'completedtodos' %}">Completed<i class="material-icons right">done</i></a>
+            <a class="btn complete-btn btn-large z-depth-2" href="{% url 'completedtodos' %}">Completed<i class="material-icons right">task_alt</i></a>
         </div>
     {% else %}
         <div class="center">

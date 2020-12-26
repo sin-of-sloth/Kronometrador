@@ -104,6 +104,11 @@ body {
     line-height: 50px;
 }
 
+.brand-icon {
+    font-size: 50px !important;
+    color: #61d800 !important;
+}
+
 .switch label input[type="checkbox"]:checked + .lever:after {
     background-image: url("../img/dark.png");
     background-size: cover;
@@ -181,11 +186,11 @@ nav form {
     background-color: #f0e23e !important;
 }
 
-.ongoing-btn {
+.ongoing-btn, .undocomplete-btn {
     background-color: #f57c00 !important;
 }
 
-.create-btn, .complete-btn, .ongoing-btn {
+.create-btn, .complete-btn, .ongoing-btn, .undocomplete-btn {
     color: #000000 !important;
 }
 

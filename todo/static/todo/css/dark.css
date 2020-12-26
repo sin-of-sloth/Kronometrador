@@ -12,7 +12,7 @@ body {
 }
 
 .dropdown-content {
-    background-color: #383838 !important;
+    background-color: #1e1e1e !important;
     color: #ffffff !important;
 }
 
@@ -21,7 +21,7 @@ body {
 }
 
 .dropdown-content li:hover {
-    background-color: #323232 !important;
+    background-color: #1b1b1b !important;
 }
 
 .dropdown-content li a {

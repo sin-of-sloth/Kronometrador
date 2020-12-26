@@ -4,11 +4,12 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
 from .forms import TodoForm
-from . models import Todo, Quote
+from .models import Todo, Quote
 from django.utils import timezone
 from django.db.models.aggregates import Count
 from django.contrib.auth.decorators import login_required
 from random import randint
+import sys
 
 def home(request) :
     count = Quote.objects.all().aggregate(count=Count('id'))['count']
@@ -112,4 +113,13 @@ def deletetodo(request, todo_pk) :
 
     if request.method == 'POST' :
         todo.delete()
+        return redirect('currenttodos')
+
+@login_required
+def undocompletetodo(request, todo_pk) :
+    todo = get_object_or_404(Todo, pk=todo_pk, user=request.user)
+
+    if request.method == 'POST' :
+        todo.datecompleted = None
+        todo.save()
         return redirect('currenttodos')

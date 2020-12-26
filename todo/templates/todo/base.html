@@ -5,15 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {% ifequal request.COOKIES.theme "dark" %}
-    <link rel="stylesheet" href="{% static 'todo/css/dark.css' %}" id="theme" class="dark">
-    {% else %}
-    <link rel="stylesheet" href="{% static 'todo/css/light.css' %}" id="theme" class="light">
-    {% endifequal %}
+    {% ifequal request.COOKIES.theme "dark" %}<link rel="stylesheet" type="text/css" href="{% static 'todo/css/dark.css' %}" id="theme" class="dark">{% else %}<link rel="stylesheet" type="text/css" href="{% static 'todo/css/light.css' %}" id="theme" class="light">{% endifequal %}
     <link rel="stylesheet" type="text/css" href="{% static 'todo/css/materialize.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'todo/css/style.css' %}">
 
-    <link rel="icon" href="{% static 'todo/img/favicon.ico' %}">
+    <link rel="shortcut icon" href="{% static 'todo/img/favicon.ico' %}">
 
     <title>Kronometrador</title>
 </head>
@@ -49,7 +45,7 @@
     <div class="navbar-fixed">
         <nav class="z-depth-3">
             <div class="nav-wrapper">
-                <a href="{% block home-url %}{% endblock %}" class="brand-logo center{% block brand-active %}{% endblock %}"><i class="material-icons right">alarm_on</i><i class="material-icons left">alarm_on</i>Kronometrador</a>
+                <a href="{% block home-url %}{% endblock %}" class="brand-logo center{% block brand-active %}{% endblock %}"><i class="material-icons right brand-icon">event_available</i><i class="material-icons left brand-icon">event_available</i>Kronometrador</a>
     
                 {% if user.is_authenticated %}
                 <ul class="left hide-on-med-and-down">

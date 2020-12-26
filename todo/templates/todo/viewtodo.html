@@ -50,7 +50,9 @@
                             <div class="col s12">
                                 <button type="submit" class="btn create-btn btn-large">Update<span class="black-span"><i class="material-icons right">update</i></span></button>&emsp;
                                 {% if todo.datecompleted is None %}
-                                <button type="button" onclick="$('#complete_btn').click()" class="btn complete-btn btn-large">Complete<span class="black-span"><i class="material-icons right">done</i></span></button>&emsp;
+                                <button type="button" onclick="$('#complete_btn').click()" class="btn complete-btn btn-large">Complete<span class="black-span"><i class="material-icons right">task_alt</i></span></button>&emsp;
+                                {% else %}
+                                <button type="button" onclick="$('#undocomplete_btn').click()" class="btn undocomplete-btn btn-large">Unmark Complete<span class="black-span"><i class="material-icons right">task_alt</i></span></button>&emsp;
                                 {% endif %}
                                 <button type="button" onclick="$('#delete_btn').click()" class="btn delete-btn btn-large">Delete<i class="material-icons right">delete_forever</i></button>
                             </div>
@@ -66,6 +68,11 @@
 <form method="POST" class="invis-form" action="{% url 'completetodo' todo.id %}">
     {% csrf_token %}
     <button type="submit" id="complete_btn">Mark Complete</button>
+</form>
+{% else %}
+<form method="POST" class="invis-form" action="{% url 'undocompletetodo' todo.id %}">
+    {% csrf_token %}
+    <button type="submit" id="undocomplete_btn">Unmark Complete</button>
 </form>
 {% endif %}
 
