@@ -9,12 +9,12 @@ from django.utils import timezone
 from django.db.models.aggregates import Count
 from django.contrib.auth.decorators import login_required
 from random import randint
-import sys
 
 def home(request) :
     count = Quote.objects.all().aggregate(count=Count('id'))['count']
     rand_index = randint(0, count - 1)
     time_quote = Quote.objects.all()[rand_index]
+    
     response = render(request, 'todo/home.html', {'time_quote':time_quote})
     if(request.COOKIES.get('theme', '') == ''):
         response.set_cookie('theme', 'light')

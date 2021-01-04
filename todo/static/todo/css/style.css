@@ -73,6 +73,10 @@ body {
     font-family: 'Montserrat';
 }
 
+body, .nav-wrapper, .dropdown-content {
+    transition: background-color .5s ease-in-out !important;
+}
+
 .ubuntu-font {
     font-family: 'UbuntuTitle';
 }
@@ -204,4 +208,12 @@ nav form {
 
 .black-span i {
     color: #000000 !important;
+}
+
+.home-btn {
+    font-family: 'Montserrat' !important;
+}
+
+.signup-btn {
+    vertical-align: 0% !important;
 }
