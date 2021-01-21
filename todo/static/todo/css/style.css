@@ -217,3 +217,7 @@ nav form {
 .signup-btn {
     vertical-align: 0% !important;
 }
+
+input[type="text"], input[type="password"] {
+    border-bottom: none !important;
+}
